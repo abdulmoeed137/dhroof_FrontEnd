@@ -1,0 +1,134 @@
+
+.footer-links span{
+  margin-top: 6px;
+}
+.footer-links a {
+  color: gray;
+  text-decoration: none;
+  font-size: 12px; /* slightly smaller */
+
+}
+
+.footer-links a:hover {
+  text-decoration: none;
+  color: gray; /* Prevent color change on hover */
+}
+
+.footer-contact span{
+  color: gray;
+  font-size: 12px; /* slightly smaller */
+  margin-top: 14px;
+}
+
+.footer-desc p{
+  color: gray;
+  font-size: 14px; /* slightly smaller */
+}
+
+.social-btn {
+  background-color: transparent;
+  color: black; /* default black icon */
+  border: 1px solid black;
+  border-radius: 40%;
+  padding: 0px 10px;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.social-btn:hover {
+  background-color: #4C69FF;
+  color: #fff;
+  border: 1px solid #4C69FF;
+}
+
+.bottom-copyright-text{
+color: gray;
+}
+
+.top-page-links a{
+    color: gray;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.top-page-links a:hover {
+  text-decoration: none;
+  color: gray;
+}
+
+.footer-links-text{
+  font-size: 16px;
+}
+
+.footer-contact-text{
+  font-size: 16px;
+}
+
+#facebook-button{
+  color: white;
+  background-color: #265FF1;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#facebook-button:hover {
+    color: #265FF1;
+  background-color: white;
+}
+
+#linkedin-button{
+  font-size: 20px;
+  font-weight: 700;
+}
+
+#linkedin-button:hover{
+  background-color: #154acf;
+  color: white;
+}
+
+#instagram-button:hover{
+background-color: 	#C13584;
+}
+
+#twitter-button{
+  font-family: 'Times New Roman', Times, serif;
+  padding: 0px 11px;
+}
+
+/* #twitter-button:hover{
+
+} */
+
+@media (max-width: 767px) {
+  .company-middle {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .contact-right{
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+}
+@media (max-width: 501px) {
+  .company-middle {
+    width: 320px;
+  }
+
+  .contact-right{
+     width: 320px;
+  }
+}
+
+@media (max-width: 400px) {
+  .company-middle {
+    width: 300px;
+  }
+
+  .contact-right{
+     width: 300px;
+  }
+}

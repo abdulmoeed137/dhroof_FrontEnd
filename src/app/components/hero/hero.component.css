@@ -1,0 +1,99 @@
+
+.button-tag-div{
+    width: 180px;
+    background-color: #F7F4FF;
+    color: #4C69FF;
+    font-size: 14px;
+    font-weight: 500;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    margin-bottom:10px;
+}
+
+.hero-left-p-text{
+    color: gray;
+  font-size: 15px; /* slightly smaller */
+  margin-top: 14px;
+}
+
+#hero-join-waitlist-button{
+    background-color: #4C69FF;
+    border-radius: 20px;
+    color: #fff;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-top: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 187px;
+}
+
+.learn-more-button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: black; /* or any color you prefer */
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.learn-more-button:hover {
+  text-decoration: underline;
+}
+.hero-image{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid black; */
+}
+.hero-image img{
+height: 600px;
+}
+
+.main-title{
+    font-size: 66px;
+  }
+
+@media (max-width: 767px) {
+  .hero-image {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .hero-image {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+  .hero-image img {
+    height: 500px;
+    width: 500px;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .hero-image img {
+    height: 320px;
+    width: 320px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 450px) {
+.main-title{
+  font-size: 50px;
+}
+}
+
+@media (max-width: 400px) {
+.main-title{
+  font-size: 40px;
+}
+}

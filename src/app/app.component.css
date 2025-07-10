@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff; /* Light Bootstrap gray */
+    color: #212529; /* Bootstrap default text */
+    min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 992px) {
+  h1, h2, h3, h4, h5, h6 {
+    font-size: calc(100% - 5px);
+  }
+
+  .options-heading,
+  .options-text,
+  p,
+  span,
+  a,
+  button {
+    font-size: calc(100% - 5px);
+  }
+}
+
+@media (max-width: 501px) {
+  h1, h2, h3, h4, h5, h6 {
+    font-size: calc(100% - 8px);
+  }
+
+  .options-heading,
+  .options-text,
+  p,
+  span,
+  a,
+  button {
+    font-size: calc(100% - 8px);
+  }
+}
+
+

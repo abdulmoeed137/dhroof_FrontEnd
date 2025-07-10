@@ -1,0 +1,45 @@
+.features-section {
+  position: relative;
+  z-index: 0; /* Lower than children but higher than ::before */
+}
+
+.features-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 800px;
+  width: 100%;
+  background-image: url('/assets/images/contactus_background.png');
+  background-size: 650px 700px;
+  background-position: left top; /* ✅ Move image down by 100px */
+  background-repeat: no-repeat;
+  opacity: 0.08;
+  z-index: -1;
+}
+
+
+
+
+
+.placeholder-gray::placeholder {
+  color: #a5a3a3 !important;
+  opacity: 1; /* For Firefox */
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#send-message-button {
+    background-color: #fff;
+    border-radius: 30px;
+    border: 1px solid #4C69FF;
+    color: #4C69FF;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-top: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    width: 180px;
+    height: 55px;
+}

@@ -1,0 +1,156 @@
+<section id="Navbar" style="padding: 25px 0px; margin-bottom: -80px; ">
+  <div class="container">
+    <div class="row" style="display: flex; justify-content: space-between;">
+      <div 
+  class="col-md-2 col-sm-5 col-xs-5 d-flex align-items-center" 
+  style="cursor: pointer;" 
+  (click)="goToHome()"
+>
+  <img src="assets/images/dhuroof_logo.png" alt="Dhuroof Logo" width="40" height="40" style="margin-right: 10px;" />
+  <h1 class="mb-0">Dhuroof</h1>
+</div>
+
+    </div>
+  </div>
+
+</section>
+<section id="contactus" class=" features-section"
+  style="margin-bottom: 150px; margin-top: 100px; background-color: #f4effc44;">
+  <div class="container">
+    <div class="row" style="padding-top: 80px;">
+
+      <!-- <div class="col-md-12"
+        style="display: flex;justify-content: center; align-items: center; flex-direction: column; margin-bottom: 100px;">
+
+      </div> -->
+      <div class="col-lg-6" style="display: flex; flex-direction: column; justify-content: start; align-items: start;">
+        <!-- <div class="button-tag-div text-center" style="color:#4C69FF; font-weight: 600; margin-top: 80px; font-size: 19px;">
+        
+      </div> -->
+        <h2 class="button-tag-div text-center">intelligent planning assistance</h2>
+        <h4 style="font-size: 33px; font-weight: 600;">Select the Dhuroof plan that best</h4>
+        <h4 style="font-size: 33px; font-weight: 600;">fuels your strategic decisions.</h4>
+        <h6 style="font-size: 17px; margin-top: 50px;"><span style="color: #4C69FF;">+20K</span> People joined us, now
+          it’s your turn</h6>
+        <img src="assets/images/waitlist_foreground.png" id="waitlist-foreground" />
+      </div>
+
+      <div class="col-lg-6"
+        style="border-radius: 20px; padding: 30px 50px; background-color: #fff; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); margin-top: -20px;">
+        <h2 style="font-size: 28px; font-weight: 700;">Join our List by filling the form</h2>
+        <form [formGroup]="waitlistForm" (ngSubmit)="onSubmit()">
+          <div class="row mb-3 align-items-center">
+            <label class="col-md-3 col-form-label">Full Name</label>
+            <div class="d-flex" style="width: 75%;">
+              <input type="text" class="form-control me-2" placeholder="First Name" formControlName="first_name"
+                style="width: 50%;" />
+              <input type="text" class="form-control" placeholder="Last Name" formControlName="last_name"
+                style="width: 50%;" />
+            </div>
+            <small class="text-danger offset-md-3" *ngIf="f['first_name'].touched && f['first_name'].invalid">
+              First name is required and must contain only letters.
+            </small>
+            <small class="text-danger offset-md-3" *ngIf="f['last_name'].touched && f['last_name'].invalid">
+              Last name is required and must contain only letters.
+            </small>
+          </div>
+
+          <div class="row mb-3">
+            <label class="col-md-3 col-form-label">Business Email</label>
+            <div class="col-md-9">
+              <input type="email" class="form-control" formControlName="email" placeholder="Add your business email" />
+              <small class="text-danger" *ngIf="f['email'].touched && f['email'].invalid">
+                Please enter a valid email address.
+              </small>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label class="col-md-3 col-form-label">Phone Number</label>
+            <div class="col-md-9">
+              <input class="form-control" formControlName="phone_number" placeholder="Add your phone number" />
+              <small class="text-danger" *ngIf="f['phone_number'].touched && f['phone_number'].invalid">
+                Phone number is required and must contain only digits, +, - or spaces.
+              </small>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label class="col-md-3 col-form-label">Company Name</label>
+            <div class="col-md-9">
+              <input class="form-control" formControlName="company_name" placeholder="Add your company name" />
+              <small class="text-danger" *ngIf="f['company_name'].touched && f['company_name'].invalid">
+                Company name is required.
+              </small>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label class="col-md-3 col-form-label">Job Title</label>
+            <div class="col-md-9">
+              <input class="form-control" formControlName="job_title" placeholder="Add your job title" />
+              <small class="text-danger" *ngIf="f['job_title'].touched && f['job_title'].invalid">
+                Job title is required.
+              </small>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label class="col-md-3 col-form-label">Number of Employees</label>
+            <div class="col-md-9">
+              <input class="form-control" formControlName="number_of_employees" placeholder="0" />
+              <small class="text-danger" *ngIf="f['number_of_employees'].touched && f['number_of_employees'].invalid">
+                Please enter a valid number of employees.
+              </small>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label class="col-md-3 col-form-label">
+              Additional<br>Messages
+            </label>
+            <div class="col-md-9">
+              <textarea class="form-control" formControlName="additional_messages" rows="3"
+                placeholder="Add your message"></textarea>
+              <small class="text-danger" *ngIf="f['additional_messages'].touched && f['additional_messages'].invalid">
+                Message is required.
+              </small>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="offset-md-3 col-md-9">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" formControlName="privacy_policy" id="privacyCheck" />
+                <label class="form-check-label" for="privacyCheck">
+                  I agree to Dhuroof Privacy Policy*
+                </label>
+                <br />
+                <small class="text-danger" *ngIf="f['privacy_policy'].touched && f['privacy_policy'].invalid">
+                  You must agree to the Privacy Policy.
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="offset-md-3 col-md-9">
+              <button class="btn btn-primary w-100" id="submit-button-to-waitlist" type="submit"
+                [disabled]="waitlistForm.invalid">
+                Join the Waitlist
+              </button>
+            </div>
+            <div *ngIf="apiResponseMessage" class="mt-3">
+  <p [ngClass]="{ 'text-success': responseSuccess, 'text-danger': !responseSuccess }">
+    {{ apiResponseMessage }}
+  </p>
+</div>
+
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</section>

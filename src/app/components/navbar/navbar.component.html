@@ -1,0 +1,133 @@
+  <section id="Navbar">
+    <div class="container">
+      <div class="row" style="display: flex; justify-content: space-between;">
+       <div class="col-md-2 col-sm-5 col-xs-5 d-flex align-items-center" >
+  <img src="assets/images/dhuroof_logo.png" alt="Dhuroof Logo" width="40" height="40" style="margin-right: 10px;" />
+  <h2 class="mb-0">Dhuroof</h2>
+</div>
+
+<div class="col-md-1 hide-on-phone">
+
+        </div>
+<div class="col-md-4 d-flex justify-content-between align-items-center top-nav-links hide-on-phone">
+  <a 
+    (click)="navigateTo('home')" 
+    [class.active-link]="activeLink === 'home'"
+    style="cursor: pointer;"
+  >
+    Home
+  </a>
+
+  <a 
+    (click)="navigateTo('about')" 
+    [class.active-link]="activeLink === 'about'"
+    style="cursor: pointer;"
+  >
+    About
+  </a>
+
+  <a 
+    (click)="navigateTo('features')" 
+    [class.active-link]="activeLink === 'features'"
+    style="cursor: pointer;"
+  >
+    Features
+  </a>
+
+  <a 
+    (click)="navigateTo('contact')" 
+    [class.active-link]="activeLink === 'contact'"
+    style="cursor: pointer;"
+  >
+    Contact Us
+  </a>
+</div>
+
+
+
+
+
+<div class="col-md-2 hide-below-xl">
+  <!-- Content (optional) -->
+</div>
+
+       <div class="col-md-3 no-wrap-buttons  hide-on-phone">
+  <button id="sign-in-button" class="btn me-3">
+    Sign In
+  </button>
+<button class="btn" id="join-waitlist-button" (click)="onJoinWaitlistClick()">
+  Join the Waitlist
+</button>
+
+</div>
+<!-- Hamburger shown on phone only -->
+<div class="col-md-3 col-sm-2 col-xs-2 d-flex justify-content-end show-on-phone">
+  <button id="menu-button-small-screen" class="hamburger-button" (click)="ToggleMobileMenu()">
+    &#9776; <!-- Hamburger icon -->
+  </button>
+</div>
+
+<!-- Mobile Menu (use Angular binding) -->
+
+      </div>
+    </div>
+ <div class="row" *ngIf="isMobileMenuOpen">
+  <div class="mobile-menu">
+    <div
+      class="col-md-4 flex justify-content-between align-items-center text-center top-nav-links"
+      style="flex-direction: column; margin-inline: auto;"
+    >
+      <span class="w-100 text-center">
+        <a
+          class="d-block"
+          [class.active-link]="activeLink === 'home'"
+          (click)="navigateTo('home')"
+          style="margin-bottom: 5px;"
+          >Home</a
+        >
+      </span>
+
+      <span class="w-100 text-center">
+        <a
+          class="d-block"
+          (click)="navigateTo('about')"
+          style="margin-bottom: 5px;"
+          >About</a
+        >
+      </span>
+
+      <span class="w-100 text-center">
+        <a
+          class="d-block"
+          (click)="navigateTo('features')"
+          style="margin-bottom: 5px;"
+          >Features</a
+        >
+      </span>
+
+      <span class="w-100 text-center">
+        <a
+          class="d-block"
+          [class.active-link]="activeLink === 'contact'"
+          (click)="navigateTo('contact')"
+          style="margin-bottom: 5px;"
+          >Contact Us</a
+        >
+      </span>
+    </div>
+
+    <div
+      class="mobile-nav-buttons mt-3"
+      style="display: flex; flex-direction: column; justify-content: center; align-items: center;"
+    >
+      <div style="max-width: 140px;">
+        <button id="mobile-sign-in-button" class="btn">Sign In</button>
+      </div>
+      <div style="max-width: 140px;">
+        <button id="mobile-join-waitlist-button" class="btn">Join the Waitlist</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </section>
