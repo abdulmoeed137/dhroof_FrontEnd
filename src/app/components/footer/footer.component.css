@@ -106,11 +106,13 @@ background-color: 	#C13584;
   .company-middle {
     margin-top: 20px;
     margin-left: 20px;
+     width: 320px;
   }
 
   .contact-right{
     margin-top: 20px;
     margin-left: 20px;
+     width: 320px;
   }
 }
 @media (max-width: 501px) {
