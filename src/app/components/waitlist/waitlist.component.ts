@@ -40,7 +40,6 @@ waitlistForm!: FormGroup;
   }
 
 onSubmit(): void {
-  debugger;
   if (this.waitlistForm.valid) {
 const WaitlistData: Waitlist = this.waitlistForm.value;
     

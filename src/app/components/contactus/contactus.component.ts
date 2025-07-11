@@ -37,7 +37,6 @@ responseSuccess: boolean = true;
 
 onSubmit(): void {
   if (this.contactForm.valid) {
-    debugger;
     const contactData: ContactUs = this.contactForm.value;
 
     this.apiService.sendContactUs(contactData).subscribe({
