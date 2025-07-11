@@ -14,6 +14,7 @@ export class ContactusComponent implements OnInit {
   contactForm!: FormGroup; // ✅ Fixed strict initialization
 apiResponseMessage: string | null = null;
 responseSuccess: boolean = true;
+loading: boolean = false;
 
   constructor(
   private fb: FormBuilder,
@@ -37,6 +38,7 @@ responseSuccess: boolean = true;
 
 onSubmit(): void {
   if (this.contactForm.valid) {
+    this.loading = true;
     const contactData: ContactUs = this.contactForm.value;
 
     this.apiService.sendContactUs(contactData).subscribe({
@@ -44,10 +46,22 @@ onSubmit(): void {
         this.apiResponseMessage = response?.message || 'Submitted successfully!';
         this.responseSuccess = true;
         this.contactForm.reset();
+        this.loading = false;
+
+        // ⏳ Clear message after 3 seconds
+        setTimeout(() => {
+          this.apiResponseMessage = null;
+        }, 3000);
       },
       error: () => {
         this.apiResponseMessage = 'Something went wrong. Please try again.';
         this.responseSuccess = false;
+        this.loading = false;
+
+        // ❌ Clear error message after 3 seconds
+        setTimeout(() => {
+          this.apiResponseMessage = null;
+        }, 3000);
       }
     });
   } else {

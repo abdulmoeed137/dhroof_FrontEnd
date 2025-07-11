@@ -7,31 +7,32 @@ import { ApiService } from '../../service';
 
 @Component({
   selector: 'app-waitlist',
-  imports: [ReactiveFormsModule,CommonModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './waitlist.component.html',
   styleUrl: './waitlist.component.css'
 })
 export class WaitlistComponent {
-waitlistForm!: FormGroup;
+  waitlistForm!: FormGroup;
 
- apiResponseMessage: string | null = null;
+  apiResponseMessage: string | null = null;
   responseSuccess: boolean = true;
+  loading: boolean = false;
 
-  constructor(private fb: FormBuilder, private apiService: ApiService) {}
+  constructor(private fb: FormBuilder, private apiService: ApiService) { }
 
   @Output() sectionChange = new EventEmitter<string>();
   ngOnInit(): void {
-   this.waitlistForm = this.fb.group({
-  first_name: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)]],
-  last_name: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)]],
-  email: ['', [Validators.required, Validators.email]],
-  phone_number: ['', [Validators.required, Validators.pattern(/^[\d+\-\s]+$/)]],
-  company_name: ['', Validators.required],
-  job_title: ['', Validators.required],
-  number_of_employees: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
-  additional_messages: ['', Validators.required],
-  privacy_policy: [false, Validators.requiredTrue]
-});
+    this.waitlistForm = this.fb.group({
+      first_name: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)]],
+      last_name: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)]],
+      email: ['', [Validators.required, Validators.email]],
+      phone_number: ['', [Validators.required, Validators.pattern(/^[\d+\-\s]+$/)]],
+      company_name: ['', Validators.required],
+      job_title: ['', Validators.required],
+      number_of_employees: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      additional_messages: ['', Validators.required],
+      privacy_policy: [false, Validators.requiredTrue]
+    });
 
   }
 
@@ -41,25 +42,36 @@ waitlistForm!: FormGroup;
 
 onSubmit(): void {
   if (this.waitlistForm.valid) {
-const WaitlistData: Waitlist = this.waitlistForm.value;
-    
+    this.loading = true;
+    const WaitlistData: Waitlist = this.waitlistForm.value;
+
     this.apiService.sendWaitlist(WaitlistData).subscribe({
       next: (res) => {
         this.apiResponseMessage = res?.message || 'You have joined the waitlist successfully!';
         this.responseSuccess = true;
         this.waitlistForm.reset();
+        this.loading = false;
+
+        // Hide message after 3 seconds
+        setTimeout(() => {
+          this.apiResponseMessage = null;
+        }, 3000);
       },
       error: () => {
         this.apiResponseMessage = 'Something went wrong. Please try again.';
         this.responseSuccess = false;
+        this.loading = false;
+
+        // Hide message after 3 seconds
+        setTimeout(() => {
+          this.apiResponseMessage = null;
+        }, 3000);
       }
     });
   } else {
     this.waitlistForm.markAllAsTouched();
   }
 }
-
-
   goToHome() {
     this.sectionChange.emit('home');
   }

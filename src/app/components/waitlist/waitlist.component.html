@@ -1,14 +1,11 @@
 <section id="Navbar" style="padding: 25px 0px; margin-bottom: -80px; ">
   <div class="container">
     <div class="row" style="display: flex; justify-content: space-between;">
-      <div 
-  class="col-md-2 col-sm-5 col-xs-5 d-flex align-items-center" 
-  style="cursor: pointer;" 
-  (click)="goToHome()"
->
-  <img src="assets/images/dhuroof_logo.png" alt="Dhuroof Logo" width="40" height="40" style="margin-right: 10px;" />
-  <h1 class="mb-0">Dhuroof</h1>
-</div>
+      <div class="col-md-2 col-sm-5 col-xs-5 d-flex align-items-center" style="cursor: pointer;" (click)="goToHome()">
+        <img src="assets/images/dhuroof_logo.png" alt="Dhuroof Logo" width="40" height="40"
+          style="margin-right: 10px;" />
+        <h1 class="mb-0">Dhuroof</h1>
+      </div>
 
     </div>
   </div>
@@ -37,7 +34,7 @@
 
       <div class="col-lg-6"
         style="border-radius: 20px; padding: 30px 50px; background-color: #fff; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); margin-top: -20px;">
-        <h2 style="font-size: 28px; font-weight: 700;">Join our List by filling the form</h2>
+        <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 20px;">Join our List by filling the form</h2>
         <form [formGroup]="waitlistForm" (ngSubmit)="onSubmit()">
           <div class="row mb-3 align-items-center">
             <label class="col-md-3 col-form-label">Full Name</label>
@@ -135,16 +132,25 @@
 
           <div class="row">
             <div class="offset-md-3 col-md-9">
-              <button class="btn btn-primary w-100" id="submit-button-to-waitlist" type="submit"
-                [disabled]="waitlistForm.invalid">
-                Join the Waitlist
+              <button class="btn btn-primary w-100 d-flex justify-content-center align-items-center"
+                id="submit-button-to-waitlist" type="submit" [disabled]="waitlistForm.invalid || loading">
+                <span *ngIf="!loading">Join the Waitlist</span>
+                <div *ngIf="loading" class="spinner-border spinner-border-sm text-light" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
               </button>
+
             </div>
             <div *ngIf="apiResponseMessage" class="mt-3">
-  <p [ngClass]="{ 'text-success': responseSuccess, 'text-danger': !responseSuccess }">
-    {{ apiResponseMessage }}
-  </p>
-</div>
+              <div [ngClass]="{
+      'response-success': responseSuccess,
+      'response-error': !responseSuccess
+    }" class="response-message">
+                {{ apiResponseMessage }}
+              </div>
+            </div>
+
+
 
           </div>
         </form>
