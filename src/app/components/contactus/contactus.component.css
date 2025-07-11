@@ -67,3 +67,9 @@
   color: #721c24; /* dark red text */
   border: 1px solid #f5c6cb;
 }
+
+@media (max-width: 992px) {
+  #add-margin-bottom{
+    margin-bottom: 40px;
+  }
+}
