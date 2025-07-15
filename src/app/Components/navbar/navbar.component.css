@@ -1,0 +1,189 @@
+#Navbar {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.top-nav-links a {
+  color: rgb(97, 94, 94);
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.top-nav-links a:hover {
+  color: gray;
+  /* No color change on hover */
+  text-decoration: none;
+  /* No underline on hover */
+  color: #4C69FF;
+}
+
+
+#sign-in-button {
+  background-color: #4C69FF;
+  color: #fff;
+  border-radius: 12px;
+  padding-left: 50px;
+  padding-right: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  width: 170px;
+  height: 55px;
+}
+
+#join-waitlist-button {
+  background-color: #fff;
+  border-radius: 12px;
+  color: #4C69FF;
+  border: 1px solid #4C69FF;
+  padding-left: 50px;
+  padding-right: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 216px;
+  height: 55px;
+}
+
+.no-wrap-buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  white-space: nowrap;
+  /* Prevent text inside buttons from wrapping */
+  /* overflow: hidden;     Optional: hides overflow if space runs out */
+}
+
+#sign-in-button,
+#join-waitlist-button {
+  white-space: nowrap;
+  /* Ensure button text stays on one line */
+}
+
+@media (max-width: 1200px) {
+  .hide-below-xl {
+    display: none !important;
+  }
+}
+
+/* Only show on screens below 992px */
+@media (max-width: 992px) {
+  .show-on-phone {
+    display: flex !important;
+  }
+
+  .hide-on-phone {
+    display: none !important;
+  }
+}
+
+/* Default: hide on phone */
+.show-on-phone {
+  display: none;
+}
+
+.hamburger-button {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.mobile-menu {
+  display: block;
+  background-color: white;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+}
+
+/* .mobile-menu.show {
+  display: block;
+} */
+
+.mobile-nav-links a {
+  display: block;
+  text-decoration: none;
+  color: rgb(97, 94, 94);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.mobile-nav-links a:hover {
+  color: #4C69FF;
+}
+
+.mobile-nav-buttons button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+#mobile-sign-in-button {
+  background-color: #fff;
+  color: #4C69FF;
+  border: 1px solid #4C69FF;
+}
+
+#mobile-join-waitlist-button {
+  background-color: #4C69FF;
+  color: #fff;
+  border: none;
+}
+
+#sign-in-button,
+#join-waitlist-button {
+  transition: all 0.3s ease;
+}
+
+#sign-in-button:hover,
+#join-waitlist-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.active-link {
+  color: #4C69FF !important;
+  font-weight: bold;
+}
+
+
+@media (min-width: 993px) {
+  .show-on-phone {
+    display: none !important;
+  }
+}
+
+@media (max-width: 575px) {
+  #menu-button-small-screen {
+    margin-top: -58px;
+  }
+}
+
+@media (max-width: 1200px) {
+  #sign-in-button {
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    width: 120px;
+    height: 40px;
+  }
+
+  #join-waitlist-button {
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 14px;
+    width: 180px;
+    height: 40px;
+  }
+
+  .top-nav-links {
+    width: 400px;
+  }
+}

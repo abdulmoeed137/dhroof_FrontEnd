@@ -1,0 +1,71 @@
+<section id="Login-Form">
+    <div class="container">
+        <div class="row">
+            <h1 style="font-weight: 500;">Sign in</h1>
+            <p>
+                New user?
+                <span><a id="join-the-waitlist-tag" (click)="onJoinWaitlistClick()">Join the waitlist</a></span>
+            </p>
+        </div>
+        <div class="row">
+            <form [formGroup]="loginForm" class="form-container" autocomplete="off" style="width: 100%;">
+                <!-- 🔒 Chrome Autofill Decoy Inputs -->
+                <input type="text" name="fake-username" style="position: absolute; opacity: 0; height: 0; width: 0"
+                    autocomplete="off" tabindex="-1" />
+                <input type="password" name="fake-password" style="position: absolute; opacity: 0; height: 0; width: 0"
+                    autocomplete="off" tabindex="-1" />
+
+                <!-- ✅ Email Input -->
+                <div class="input-wrapper" style="margin-bottom:8px">
+                    <input #emailInput type="text" formControlName="email" name="user_email_custom" autocomplete="off"
+                        required [attr.readonly]="true" (focus)="removeReadonly($event); emailFocused = true"
+                        (blur)="emailFocused = false" />
+                    <label [class.floating]="emailFocused || loginForm.get('email')?.value">
+                        Email address
+                    </label>
+                </div>
+
+                <!-- ✅ Password Input -->
+                <div class="input-wrapper">
+                    <input #passwordInput [type]="showPassword ? 'text' : 'password'" formControlName="password"
+                        name="user_password_custom" autocomplete="new-password" required [attr.readonly]="true"
+                        (focus)="removeReadonly($event); passwordFocused = true" (blur)="passwordFocused = false" />
+                    <label [class.floating]="passwordFocused || loginForm.get('password')?.value">
+                        Password
+                    </label>
+                    <span class="toggle-password" (click)="showPassword = !showPassword">
+                        <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash-fill' : 'bi-eye-fill'"></i>
+                    </span>
+                </div>
+            </form>
+        </div>
+        <div class="row"
+            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 60px;">
+            <div class="col-lg-6" style="display: flex; justify-content:start; align-items: center;">
+                <span>
+                    <a id="forgotpassword" (click)="onForgotPasswordClick()" style="cursor: pointer;" class="page-link">
+                        Forgot password?
+                    </a>
+                </span>
+            </div>
+
+
+
+            <button id="sign-in-button" class="btn me-3">
+                Sign In
+            </button>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div style="max-width: 437px;">
+                    <p style="font-size: 14px;">Protected by reCAPTCHA and subject to the <span><a
+                                class="page-link">Cuboid Provacy Policy</a></span> and <span><a class="page-link">Terms
+                                of Services</a></span>.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

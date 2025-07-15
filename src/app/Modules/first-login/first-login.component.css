@@ -1,0 +1,125 @@
+#first-login{
+    width: 100%;
+    height: 100%;
+}
+.main-text-first-login{
+    color: #4C69FF;
+    font-size: 45px;
+    font-weight: 600;
+}
+
+.side-text-first-login{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.side-text-steps-first-login{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.loader-out1{
+    background-color: rgba(232, 235, 245, 0.8);
+    width: 100%;
+    height: 10px;
+    border-radius: 30px;
+}
+
+#loader-in1{
+    background-color: #4C69FF;
+    width: 33.33%;
+    height: 10px;
+    border-radius: 30px;
+}
+
+#loader-in2{
+    background-color: #4C69FF;
+    width: 66.66%;
+    height: 10px;
+    border-radius: 30px;
+}
+
+#loader-in2{
+    background-color: #4C69FF;
+    width: 100%;
+    height: 10px;
+    border-radius: 30px;
+}
+#next-button {
+  background-color: #4C69FF;
+  color: #fff;
+  border-radius: 12px;
+  padding-left: 50px;
+  padding-right: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  width: 170px;
+  height: 55px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 30px;
+}
+
+#skip-button {
+  background-color: #fff;
+  border-radius: 12px;
+  color: gray;
+  border: 1px solid gray;
+  padding-left: 20px;
+  padding-right: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 180px;
+  height: 55px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.right-div-background{
+    background-color: #F9FAFF;
+}
+
+#lets-go-button{
+      background-color: #393854;
+  color: #fff;
+  border-radius: 12px;
+  padding-left: 50px;
+  padding-right: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  width: 170px;
+  height: 55px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.category-card {
+  background-color: #fff;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 40px;
+width: 90%;
+margin-inline: auto;
+  /* ✅ Soft shadow to bottom-right */
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+
+.category-tag-button{
+  background-color: #4C69FF;
+  color: #fff;
+  border-radius: 30px;
+  padding-left: 40px;
+  padding-right: 40px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  height: 55px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+margin-right: 20px;
+  border: none;
+}
