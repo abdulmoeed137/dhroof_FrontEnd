@@ -1,0 +1,90 @@
+#events{
+padding: 10px;
+border: none;
+}
+
+#event-listing-card{
+    background-color: #fff;
+    border-radius: 30px;
+}
+
+#event-listing-card {
+  background-color: #fff;
+  border-right: 1px solid #ccc;
+}
+
+#event-listing-card h5 {
+  color: #333;
+  font-weight: 600;
+}
+
+#event-listing-card div {
+  font-size: 14px;
+}
+
+.event-entry {
+  position: relative;
+  border-bottom: 1px solid #dee2e6;
+  transition: background-color 0.3s;
+}
+
+.event-entry:hover {
+  background-color: #e6f0ff;
+}
+
+.event-entry:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid #4C69FF;
+  border-radius: 8px; /* optional */
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Scrollbar track */
+#event-listing-card div::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Scrollbar thumb */
+#event-listing-card div::-webkit-scrollbar-thumb {
+  background-color: #4C69FF;
+  border-radius: 10px;
+}
+
+/* Optional: scrollbar track background */
+#event-listing-card div::-webkit-scrollbar-track {
+  background: #f0ebeb;
+}
+
+.custom-nav-tabs .nav-link {
+  font-size: 14px;
+  color: #333;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 4px 6px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.custom-nav-tabs .nav-link:hover {
+  color: #4C69FF;
+}
+
+.custom-nav-tabs .nav-link.active {
+  color: #4C69FF;
+  border-bottom: 2px solid #4C69FF;
+  font-weight: 500;
+}
+
+.custom-nav-tabs .nav-link {
+  cursor: pointer;
+}
+
+
+
+

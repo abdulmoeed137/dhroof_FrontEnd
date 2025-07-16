@@ -1,0 +1,103 @@
+.side-bar-icon {
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+  color: #555;
+}
+
+
+.side-bar-icon:hover {
+  color: #4C69FF;
+}
+/* Sidebar Icon */
+.side-bar-icon {
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+  color: #555;
+}
+
+.side-bar-icon:hover {
+  color: #4C69FF;
+}
+
+/* Dark Mode Switch Container */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 80px;
+}
+
+/* Hide checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider Background */
+.slider {
+  background-color: #fff;
+  border: 1px solid rgb(184, 183, 183);
+  border-radius: 40px;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  transition: background-color 0.4s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+}
+
+/* Icon Container with Circle */
+.icon-container {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+/* Active Circle Highlight */
+.icon-container.active {
+  background-color: #cce0ff;
+}
+
+/* Sun and Moon Icons */
+.icon-container i {
+  font-size: 18px;
+  color: #888;
+  transition: color 0.3s;
+}
+
+.icon-container.active i {
+  color: #4C69FF;
+  font-weight: 1000;
+}
+
+/* Checked (dark mode) styling */
+input:checked + .slider {
+  background-color: #222;
+}
+
+input:checked + .slider .icon-container i.bi-sun {
+  color: #555;
+}
+
+input:checked + .slider .icon-container i.bi-moon {
+  color: #fff;
+}

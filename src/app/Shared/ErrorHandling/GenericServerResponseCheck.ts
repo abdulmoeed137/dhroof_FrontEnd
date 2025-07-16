@@ -7,22 +7,21 @@ export async function ServerResponseError(response: HttpResponse<any>): Promise<
 
   if (response.status === 500) {
     return {
-      Status: false,
-      Message: 'Server Error. Please try again later.'
+      status: false,
+      message: 'Server Error. Please try again later.'
     };
   }
 
-  // 🔴 Handle other statuses like 400, 401, etc.
   try {
     const errorData = response.body;
     return {
-      Status: false,
-      Message: errorData?.Message || 'Something went wrong. Please try again.'
+      status: false,
+      message: errorData?.Message || 'Something went wrong. Please try again.'
     };
   } catch {
     return {
-      Status: false,
-      Message: 'Unexpected error. Please try again.'
+      status: false,
+      message: 'Unexpected error. Please try again.'
     };
   }
 }

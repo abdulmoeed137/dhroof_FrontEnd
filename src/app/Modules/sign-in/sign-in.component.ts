@@ -17,6 +17,9 @@ export class SignInComponent {
 
   constructor() { }
 
+@Output() loginCompleted = new EventEmitter<{ isFirstLogin: boolean; email: string }>();
+
+
 currentForm: 'login' | 'waitlist' | 'forgotpassword' = 'login';
 
   onSectionChanged(value: string) {
@@ -28,5 +31,10 @@ currentForm: 'login' | 'waitlist' | 'forgotpassword' = 'login';
     this.currentForm = 'login';
   }
 }
+
+onLoginSuccess(data: { isFirstLogin: boolean; email: string }) {
+  this.loginCompleted.emit(data);
+}
+
 
 }

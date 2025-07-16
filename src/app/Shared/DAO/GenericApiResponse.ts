@@ -1,4 +1,4 @@
 export interface GenericApiResponse {
-  Status: boolean;
-  Message: string;
+  status: boolean;
+  message: string;
 }

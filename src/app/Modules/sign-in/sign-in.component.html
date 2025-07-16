@@ -8,8 +8,9 @@
         style="display: flex;justify-content: center; align-items: center; flex-direction: column; margin-bottom: 100px;">
 
       </div> -->
-            <div class="col-lg-6"
-                style="display: flex; flex-direction: column; justify-content: start; align-items: start;" *ngIf="currentForm !== 'forgotpassword'">
+            <div class="col-lg-6 col-12 mb-5 mb-lg-0"
+                style="display: flex; flex-direction: column; justify-content: start; align-items: start;"
+                *ngIf="currentForm !== 'forgotpassword'">
                 <!-- <div class="button-tag-div text-center" style="color:#4C69FF; font-weight: 600; margin-top: 80px; font-size: 19px;">
         
       </div> -->
@@ -22,27 +23,38 @@
                 <h6 style="font-size: 17px; margin-top: 50px;"><span style="color: #4C69FF;">+20K</span> People joined
                     us, now
                     it’s your turn</h6>
-                <img src="assets/images/waitlist_foreground.png" id="waitlist-foreground" />
+                <img 
+  src="assets/images/waitlist_foreground.png" 
+  id="waitlist-foreground" 
+  style="max-width: 100%; height: auto;"
+/>
+
                 <p style="color:gray; margin-top: 50px;">Having troubles? <span style="color: #4C69FF;">Get Help</span>
                 </p>
             </div>
 
-            <div class="col-lg-6"
-                style="border-radius: 20px; padding: 30px 50px; background-color: #fff; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); margin-top: -50px;"
+            <div class="col-lg-6  col-12"
                 *ngIf="currentForm === 'waitlist'">
                 <app-waitlist-form></app-waitlist-form>
             </div>
             <div class="col-lg-6" style="border-radius: 20px; padding: 30px 50px; margin-top: -20px;"
                 *ngIf="currentForm === 'login'">
-                <app-login-form (sectionChange)="onSectionChanged($event)"></app-login-form>
+
+                <app-login-form *ngIf="currentForm === 'login'" (sectionChange)="onSectionChanged($event)"
+                    (loginSuccess)="onLoginSuccess($event)" class="top-0 start-0 w-100 h-100">
+                </app-login-form>
+
             </div>
-            <div class="col-12" style="border-radius: 20px; padding: 30px 50px; margin-top: -20px; display: flex; justify-content: center; flex-direction: column; align-items: center;"
+
+            <div class="col-12"
+                style="border-radius: 20px; padding: 30px 50px; margin-top: -20px; display: flex; justify-content: center; flex-direction: column; align-items: center;"
                 *ngIf="currentForm === 'forgotpassword'">
                 <app-forgot-password (sectionChange)="onSectionChanged($event)">
                 </app-forgot-password>
                 <div style="width: 100%; display: flex;">
-                 <p style="color:gray; margin-top: 50px;">Having troubles? <span style="color: #4C69FF;">Get Help</span>
-                </p>
+                    <p style="color:gray; margin-top: 50px;">Having troubles? <span style="color: #4C69FF;">Get
+                            Help</span>
+                    </p>
                 </div>
 
             </div>

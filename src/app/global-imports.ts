@@ -27,3 +27,4 @@ export * from './Shared/DAO/GenericApiResponse';
 
 // Servcies -----------------------------------------------------------------
 
+export * from './Services/waitlist-service';

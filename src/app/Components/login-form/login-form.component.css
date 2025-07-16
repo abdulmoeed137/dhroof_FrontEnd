@@ -121,3 +121,9 @@ label.floating {
 .page-link:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 1200px) {
+  #forgot-pass-div {
+    gap: 20px;
+  }
+}

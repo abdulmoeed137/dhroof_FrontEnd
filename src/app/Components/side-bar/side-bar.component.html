@@ -1,0 +1,42 @@
+<section id="side-bar" style="border: 1px solid black; height: 100%;">
+    <div class="container" style="height: 100%;">
+        <div class="row" style="display: flex; align-items: center; justify-content: space-between;height: 100%;">
+            <div style="display: flex; align-items: center; justify-content: center;">
+                <img src="assets/images/dhuroof_logo.png" alt="Dhuroof Logo" width="35" height="35"
+                    style="margin-right: 10px;" />
+            </div>
+            <div style="display: flex; align-items: center; justify-content: center;">
+                <ul class="list-unstyled text-center d-flex flex-column gap-4">
+                    <li><i class="bi bi-grid side-bar-icon"></i></li>
+                    <li><i class="bi bi-calendar3 side-bar-icon"></i></li>
+                    <li><i class="bi bi-journal-text side-bar-icon"></i></li>
+                    <li><i class="bi bi-gear side-bar-icon"></i></li>
+                </ul>
+            </div>
+            <div>
+                <div class="theme-toggle">
+                    <label class="switch">
+                        <input type="checkbox" (change)="toggleTheme()" [checked]="isDarkMode" />
+                        <div class="slider">
+                            <div class="icon-container" [class.active]="!isDarkMode">
+                                <i class="bi bi-sun"></i>
+                            </div>
+                            <div class="icon-container" [class.active]="isDarkMode">
+                                <i class="bi bi-moon"></i>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: center;">
+                <ul class="list-unstyled text-center d-flex flex-column gap-4">
+                    <li><i class="bi bi-headphones side-bar-icon"></i></li>
+                    <li><i class="bi bi-box-arrow-left side-bar-icon"></i></li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+</section>

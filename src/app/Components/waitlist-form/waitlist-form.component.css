@@ -22,9 +22,3 @@
 
 
 
-@media (max-width: 576px) {
-  #waitlist-foreground {
-    width: calc(100% - 5%);
-    height: calc(100% - 5%);
-  }
-}

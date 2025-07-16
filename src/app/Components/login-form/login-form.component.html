@@ -39,8 +39,8 @@
                 </div>
             </form>
         </div>
-        <div class="row"
-            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 60px;">
+        <div class="row" id="forgot-pass-div"
+            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 60px; flex-wrap: wrap-reverse;">
             <div class="col-lg-6" style="display: flex; justify-content:start; align-items: center;">
                 <span>
                     <a id="forgotpassword" (click)="onForgotPasswordClick()" style="cursor: pointer;" class="page-link">
@@ -51,9 +51,11 @@
 
 
 
-            <button id="sign-in-button" class="btn me-3">
+            <button id="sign-in-button" class="btn me-3" (click)="onSignInClick()" [disabled]="loginForm.invalid">
                 Sign In
             </button>
+
+
 
         </div>
 

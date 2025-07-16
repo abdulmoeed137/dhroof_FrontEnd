@@ -1,5 +1,5 @@
 <section id="first-login" style="height: 95vh;">
-    <!-- <div class="container-fluid" style="height: 100%;">
+    <div class="container-fluid" style="height: 100%;" *ngIf="currentStep === 1">
         <div class="row" style="height: 90%;">
             <div class="col-lg-5"
                 style="display: flex; flex-direction: column; justify-content: space-evenly; align-items: center;">
@@ -28,11 +28,13 @@
                 <div class="d-flex justify-content-center align-items-center h-100">
                     <div
                         style="background: #fff; padding: 30px 40px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); min-width: 400px;">
-                        <p style="margin-bottom: 10px; font-size: 14px; color: #666; font-weight: 600;">Write your location</p>
+                        <p style="margin-bottom: 10px; font-size: 14px; color: #666; font-weight: 600;">Write your
+                            location</p>
 
                         <div class="input-group" style="border-bottom: 1px solid #ccc; padding-bottom: 8px;">
-                            <input type="text" class="form-control"
+                            <input type="text" class="form-control" [(ngModel)]="locationInput"
                                 style="border: none; font-weight: 700; font-size: 18px; padding-left: 0; box-shadow: none;" />
+
                         </div>
                     </div>
                 </div>
@@ -40,15 +42,17 @@
             </div>
         </div>
         <div class="row" style="display: flex;justify-content: end; border-top: 1px solid rgb(228, 226, 226);">
-            <button class="btn" id="skip-button">
+            <button class="btn" id="skip-button" (click)="skip()">
                 Skip
             </button>
-            <button id="next-button" class="btn me-3">
+            <button id="next-button" class="btn me-3" [disabled]="!locationInput || locationInput.trim().length === 0"
+                (click)="goToNextStep()">
                 Next
             </button>
+
         </div>
-    </div> -->
-    <div class="container-fluid" style="height: 100%;">
+    </div>
+    <div class="container-fluid" style="height: 100%;" *ngIf="currentStep === 2">
         <div class="row" style="height: 90%;">
             <div class="col-lg-5"
                 style="display: flex; flex-direction: column; justify-content: space-evenly; align-items: center;">
@@ -73,40 +77,42 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-7 right-div-background" style="overflow-y: scroll;">
-                <p>Choose at least <span style="color: #4C69FF;font-weight: 600;">three</span> categories</p>
-                <div>
-                    <div class="category-card">
-                        <div>
-                            <h5 style="font-size: 28px;">Business</h5>
-                        </div>
-                        <div><button class="category-tag-button">
-                                Finance
-                            </button>
-                        <button class="category-tag-button">
-                                Manufacturing
-                            </button>
-                        <button class="category-tag-button">
-                                Real Estate
-                            </button>
-                        <button class="category-tag-button">
-                                Others
-                            </button></div>
-                    </div>
+            <div class="col-lg-7 right-div-background" style="overflow-y: scroll; height: 100%;">
+
+                <div id="selection-category-text">
+                    <p>
+                        Choose at least <span style="color: #4C69FF; font-weight: 600;">three</span> categories
+                    </p>
                 </div>
 
+                <div *ngFor="let category of categories">
+                    <div class="category-card">
+                        <div>
+                            <h5 style="font-size: 28px;">{{ category.name }}</h5>
+                        </div>
+                        <div>
+                            <button *ngFor="let tag of category.tags"
+                                [ngClass]="isSelected(tag.id) ? 'selected-category-tag-button' : 'category-tag-button'"
+                                (click)="toggleSelection(tag.id)">
+                                {{ tag.name }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
         <div class="row" style="display: flex;justify-content: end; border-top: 1px solid rgb(228, 226, 226);">
-            <button class="btn" id="skip-button">
+            <button class="btn" id="skip-button" (click)="skip()">
                 Skip
             </button>
-            <button id="next-button" class="btn me-3">
+            <button id="next-button" class="btn me-3" [disabled]="selectedTagIds.length < 3" (click)="goToNextStep()">
                 Next
             </button>
+
         </div>
     </div>
-    <!-- <div class="container-fluid" style="height: 100%;">
+    <div class="container-fluid" style="height: 100%;" *ngIf="currentStep === 3">
         <div class="row" style="height: 100%;">
             <div class="col-lg-5"
                 style="display: flex; flex-direction: column; justify-content: space-evenly; align-items: center;">
@@ -117,7 +123,9 @@
                 </div>
                 <div style="max-width: 366px;">
                     <p class="side-text-first-login" style="font-weight: 700; margin-bottom: 50px;">
-                        Ahmed12&#64;gmail.com</p>
+                        {{ userEmail }}
+                    </p>
+
                     <p class="side-text-first-login">
                         From art and sport to travel and business, Dhuroof has thousands of local events for whatever
                         your into
@@ -128,13 +136,14 @@
                         Step 3 of 3
                     </p>
                     <div class="loader-out1">
-                        <div id="loader-in2">
+                        <div id="loader-in3">
 
                         </div>
                     </div>
-                    <button id="lets-go-button" class="btn me-3">
-                        Lets go
-                    </button>
+                    <button id="lets-go-button" class="btn me-3" (click)="finishOnboarding()">
+  Let's go
+</button>
+
                 </div>
             </div>
             <div class="col-lg-7 right-div-background"
@@ -144,5 +153,5 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 </section>
