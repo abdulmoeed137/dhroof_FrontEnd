@@ -52,12 +52,13 @@
 </div>
 
        <div class="col-md-3 no-wrap-buttons  hide-on-phone">
-  <button id="sign-in-button" class="btn me-3">
-    Sign In
-  </button>
-<button class="btn" id="join-waitlist-button" (click)="onJoinWaitlistClick()">
+ <button id="sign-in-button" class="btn me-3" (click)="redirectToSignIn()">
+  Sign In
+</button>
+<button class="btn" id="join-waitlist-button" (click)="redirectToWaitlist()">
   Join the Waitlist
 </button>
+
 
 </div>
 <!-- Hamburger shown on phone only -->

@@ -12,4 +12,9 @@ export class HeroComponent {
 onJoinWaitlistClick() {
   this.sectionChange.emit('waitlist');
 }
+
+  redirectToWaitlist() {
+    window.location.href = 'https://taupe-toffee-e13a98.netlify.app/?form=waitlist';
+  }
+  
 }

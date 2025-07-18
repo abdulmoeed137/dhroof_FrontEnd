@@ -9,16 +9,16 @@ import { CommonModule } from '@angular/common'; // ✅ import this
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-@Input() activeLink: string = '';
-@Output() sectionChange = new EventEmitter<string>();
+  @Input() activeLink: string = '';
+  @Output() sectionChange = new EventEmitter<string>();
 
   ngOnInit() {
 
-}
+  }
 
-onJoinWaitlistClick() {
-  this.sectionChange.emit('waitlist');
-}
+  onJoinWaitlistClick() {
+    this.sectionChange.emit('waitlist');
+  }
 
   isMobileMenuOpen = false;
 
@@ -27,8 +27,15 @@ onJoinWaitlistClick() {
   }
 
   navigateTo(section: string) {
-  this.sectionChange.emit(section);
-  this.isMobileMenuOpen = false; // close mobile menu on navigation
-}
+    this.sectionChange.emit(section);
+    this.isMobileMenuOpen = false; // close mobile menu on navigation
+  }
 
+  redirectToSignIn() {
+    window.location.href = 'https://taupe-toffee-e13a98.netlify.app/?form=login';
+  }
+
+  redirectToWaitlist() {
+    window.location.href = 'https://taupe-toffee-e13a98.netlify.app/?form=waitlist';
+  }
 }
