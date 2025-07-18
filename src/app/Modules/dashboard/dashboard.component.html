@@ -1,14 +1,99 @@
 <section id="dashboard" style="height: 100%;">
     <div style="height: inherit; display: flex;">
         <div style="width: 8%;height: inherit;">
-            <app-side-bar></app-side-bar>
+            <app-side-bar (logoutClicked)="onLogout()"></app-side-bar>
         </div>
-        <div style="width: 92%;height: inherit;">
-            <div style="border: 1px solid violet; height: 10%;">
+        <div style="width: 92%;height: inherit; background-color: #f7f3f3;">
+            <div class="container-fluid" style=" height: 10%; display: flex; align-items: center;border-bottom: 1px solid rgb(232, 232, 232);">
+                <div class="row" style="width: 100%;">
+                    <div class="col-md-6" id="nav-bar-left"
+                        style="display: flex; justify-content: start; align-items: center; gap: 40px;">
+                        <h2 style="margin-left: 10px;" id="nav-bar-title">Dhuroof</h2>
+                        <div>
+                            <span style="font-size: 20px; color: gray;" class="move-symbol">&lt;</span>&nbsp;&nbsp;
+                            <span style="font-size: 20px; color: gray;" class="move-symbol">&gt;</span>
+                        </div>
+                        <h3 id="nav-bar-date">July 2025</h3>
+                    </div>
 
+                    <div class="col-md-6" id="nav-bar-right"
+                        style="display: flex; justify-content: end; align-items: center; gap: 30px;">
+                        <div style="position: relative; display: inline-block;">
+                            <i class="bi bi-search"
+                                style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #1c1b1b;"></i>
+                            <input placeholder="Search" id="nav-bar-search"
+                                style="padding-left: 30px; border-radius: 20px; height: 30px; border: 1px solid #ccc; width: 100%;font-size: 12px;">
+                        </div>
+
+                        <div id="navbar-notification-circle">
+                            <i class="bi bi-bell" style="font-size: 20px;"></i>
+                            <span class="notification-dot"></span>
+                        </div>
+
+                        <div id="navbar-notification-circle" style="background-image: url('assets/images/apple.jpg'); 
+                background-size: cover; 
+                background-position: center; 
+                width: 50px; 
+                height: 50px; border-radius: 50%;">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div style="border: 1px solid yellow; height: 90%;">
-<app-events></app-events>
+
+            <div
+                style=" height: 90%; overflow-y: scroll;padding-top: 10px;padding-bottom: 10px;display: flex;justify-content: center;flex-wrap: wrap;">
+                <div class="container-fluid">
+                    <div class="row" style="display: flex; align-items: stretch; width: 100%;">
+                        <div class="col-lg-4" style="display: flex; flex-direction: column;" id="div">
+                            <img src="assets/images/EventCalender.png" class="responsive-img" style="width: 100%;" />
+
+                            <div style="position: relative; display: inline-block; margin-top: 7px; width: 100%;">
+                                <i class="bi bi-search"
+                                    style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #1c1b1b;"></i>
+                                <input placeholder="Enter Search Keyword" id="nav-bar-search"
+                                    style="padding-left: 30px; border-radius: 20px; height: 30px; border: 1px solid #ccc; width: 100%;font-size: 12px;" />
+                            </div>
+
+                            <img src="assets/images/EventCategory.png" class="responsive-img"
+                                style="margin-top: 7px; width: 100%;" />
+                            <img src="assets/images/Location.png" class="responsive-img"
+                                style="margin-top: 7px; width: 100%;" />
+
+                            <div style="display: flex; margin-top: 7px; width: 100%;">
+                                <img src="assets/images/Intereststopics.png" style="width: 50%;" />
+                                <img src="assets/images/MutedTopics.png" style="width: 50%;" />
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5" style="display: flex;">
+                            <img src="assets/images/EventsBox.png"
+                                style="width: 100%; height: 100%; object-fit: cover; display: block;"  id="second-div-dashboard"/>
+                        </div>
+
+                        <div class="col-lg-3" style="display: flex;">
+                            <img src="assets/images/eventDetails.png"
+                                style="width: 100%; height: 100%; object-fit: cover; display: block;"  id="third-div-dashboard"/>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- <div>
+                    <img src="assets/images/EventCalender.png" class="responsive-img" />
+                    <div style="position: relative; display: inline-block; margin-top: 7px;width: 100%;">
+                            <i class="bi bi-search"
+                                style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #1c1b1b;"></i>
+                            <input placeholder="Search" id="nav-bar-search"
+                                style="padding-left: 30px; border-radius: 20px; height: 50%; border: 1px solid #ccc;width: 100%;">
+                        </div>
+                    <img src="assets/images/EventCategory.png" class="responsive-img"  style="margin-top: 7px;"/>
+                    <img src="assets/images/Location.png" class="responsive-img" style="margin-top: 7px;"/>
+                    <div style="display: flex;margin-top: 7px;">
+                        <img src="assets/images/Intereststopics.png"/>
+                        <img src="assets/images/MutedTopics.png"  />
+                    </div>
+                </div>
+                <img src="assets/images/EventsBox.png" style="width: 50%;margin-left: 8px;"/>
+                <img src="assets/images/eventDetails.png" /> -->
             </div>
         </div>
     </div>

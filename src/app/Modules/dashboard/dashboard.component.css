@@ -1,0 +1,62 @@
+#navbar-notification-circle{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    
+}
+
+  .notification-dot {
+    height: 8px;
+    width: 8px;
+    background-color: red;
+    border-radius: 50%;
+    border: 1px solid white; /* Optional: white border for better visibility */
+    margin-top: -10px;
+    margin-left: -10px;
+  }
+
+      .responsive-img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+  @media (max-width: 992px) {
+    #second-div-dashboard{
+      margin-top: 20px;
+    }
+
+      #third-div-dashboard{
+      margin-top: 50px;
+    }
+  }
+
+  @media (max-width: 768px) {
+  #nav-bar-left{
+    justify-content: space-between !important;
+    gap: 0px;
+  }
+
+  #nav-bar-right{
+    justify-content: space-between !important;
+    gap: 10px;
+  }
+
+  #nav-bar-title{
+    font-size: 20px;
+    margin-left: 0px;
+  }
+
+  #nav-bar-date{
+    font-size: 16px;
+  }
+
+  .move-symbol{
+    font-size: 14px !important;
+  }
+}

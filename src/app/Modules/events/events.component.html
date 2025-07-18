@@ -1,102 +1,243 @@
-<section id="events" style="border: 1px solid red; background-color: #faf7fd; height: 100%;">
-    <div class="container-fluid" style=" height: 100%;">
-        <div class="row" style=" height: 100%;">
-            <div class="col-lg-6" id="event-listing-card"
-                style="display: flex; flex-direction: column; height: 100%; padding: 50px 30px;">
+<section id="events" style="border: 1px solid red; background-color: #f5f1fa; height: 100%;">
+  <div class="container-fluid" style=" height: 100%;">
+    <div class="row" style=" height: 100%;">
+      <div class="col-lg-6" id="event-listing-card"
+        style="display: flex; flex-direction: column; height: 100%; padding: 50px 30px;">
 
-                <!-- Static Header (20%) -->
-                <div style="height: 10%; margin-bottom: 30px;">
-  <h4>Upcoming Schedule</h4>
+        <!-- Header and Filters (unchanged) -->
+        <!-- ... keep your existing header and nav-tab code ... -->
+        <div style="height: 10%; margin-bottom: 30px;">
+          <div style="width: 100%; display: flex;justify-content:space-between;align-items: center;">
+            <div style="display: flex;justify-content: start; align-items: center;">
+              <div
+                style="padding: 3px;background-color: #cce0ff; border-radius: 50%; width: 40px;height: 40px; display: flex; justify-content: center;align-items: center;">
+                <span class="material-symbols-outlined">
+                  calendar_month
+                </span>
+              </div>
 
-<ul class="nav custom-nav-tabs" style="gap: 10px;">
-  <li class="nav-item">
-    <a class="nav-link" 
-       [class.active]="selectedTab === 'my-events'"
-       (click)="selectedTab = 'my-events'">
-      <i class="bi bi-calendar-check me-1"></i> My Events
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" 
-       [class.active]="selectedTab === 'recommended'"
-       (click)="selectedTab = 'recommended'">
-      <i class="bi bi-star me-1"></i> Recommended
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" 
-       [class.active]="selectedTab === 'important'"
-       (click)="selectedTab = 'important'">
-      <i class="bi bi-exclamation-circle me-1"></i> Important
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" 
-       [class.active]="selectedTab === 'other'"
-       (click)="selectedTab = 'other'">
-      <i class="bi bi-layers me-1"></i> Other
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" 
-       [class.active]="selectedTab === 'muted'"
-       (click)="selectedTab = 'muted'">
-      <i class="bi bi-volume-mute me-1"></i> Muted
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" 
-       [class.active]="selectedTab === 'all'"
-       (click)="selectedTab = 'all'">
-      <i class="bi bi-list-check me-1"></i> All
-    </a>
-  </li>
-</ul>
-
-</div>
-
-
-
-                <!-- Scrollable List (80%) -->
-                <div style="height: 90%; overflow-y: auto;">
-                    <div *ngFor="let entry of scheduleData" class="p-3 event-entry border-bottom">
-                        <div class="row align-items-start">
-
-                            <!-- Date Column -->
-                            <div class="col-4 d-flex align-items-start">
-                                <div
-                                    style="width: 25px; height: 25px; border-radius: 50%; background-color: #E8E8EE; color: black; display: flex; align-items: center; justify-content: center; font-weight: bold;">
-                                    {{ entry.day }}
-                                </div>
-                                <div class="ms-4" style="margin-top: 2px;">
-                                    <p style="font-size: 14px;">{{ entry.month }}, {{ entry.weekday }}</p>
-                                </div>
-                            </div>
-
-                            <!-- Time and Title Column -->
-                            <div class="col-8">
-                                <div *ngFor="let time of entry.times; let i = index"
-                                    class="d-flex align-items-center mb-1">
-                                    <i class="bi bi-circle-fill"
-                                        style="color: #4C69FF; font-size: 8px; margin-right: 6px;"></i>
-                                    <div style="width: 40%;">{{ time }}</div>
-                                    <div style="width: 60%;">
-                                        <i class="bi bi-grid-fill" style="font-size: 8px; margin-right: 6px;"></i>
-                                        {{ entry.titles[i] }}
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+              <h5 style="margin-left: 10px;">
+                {{ currentDate }}
+              </h5>
 
             </div>
 
-
-            <div class="col-lg-6">
-                <!-- Right side -->
+            <div style="display: flex;">
+              <h6 style="margin-top: 2px;">Filter by</h6>
+              <span class="material-symbols-outlined"
+                style="border-radius: 6px; border: 1px solid rgb(177, 176, 176);margin-left: 5px; cursor: pointer; padding: 2px;">
+                tune
+              </span>
             </div>
+          </div>
+          <ul class="nav custom-nav-tabs" style="gap: 10px; margin-top: 10px;">
+            <li class="nav-item">
+              <a class="nav-link" [class.active]="selectedTab === 'my-events'" (click)="selectedTab = 'my-events'">
+                <i class="bi bi-calendar-check me-1"></i> My Events
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [class.active]="selectedTab === 'recommended'" (click)="selectedTab = 'recommended'">
+                <i class="bi bi-star me-1"></i> Recommended
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [class.active]="selectedTab === 'important'" (click)="selectedTab = 'important'">
+                <span class="material-symbols-outlined me-1 align-middle"
+                  style="font-size: 17px; vertical-align: middle; margin-bottom: 2px;">
+                  label_important
+                </span> Important
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" [class.active]="selectedTab === 'other'" (click)="selectedTab = 'other'">
+                <i class="bi bi-layers me-1"></i> Other
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [class.active]="selectedTab === 'muted'" (click)="selectedTab = 'muted'">
+                <span class="material-symbols-outlined  me-1 align-middle"
+                  style="font-size: 17px; vertical-align: middle; margin-bottom: 2px;">
+                  volume_off
+                </span> Muted
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [class.active]="selectedTab === 'all'" (click)="selectedTab = 'all'">
+                <span class="material-symbols-outlined me-1 align-middle"
+                  style="font-size: 17px; vertical-align: middle; margin-bottom: 2px;">
+                  library_add_check
+                </span> All
+              </a>
+            </li>
+          </ul>
+
         </div>
+
+        <!-- Scrollable List -->
+        <!-- Scrollable List (80%) -->
+        <div style="height: 90%; overflow-y: auto; margin-top: 10px;">
+          <div *ngFor="let entry of scheduleData" class="p-3 event-entry border-bottom" style="cursor: pointer;">
+
+            <div class="row align-items-start">
+
+              <!-- Date Column (Same for all events in this entry) -->
+              <div class="col-4 d-flex align-items-start">
+                <div
+                  style="width: 25px; height: 25px; border-radius: 50%; background-color: #E8E8EE; color: black; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                  {{ entry.day }}
+                </div>
+                <div class="ms-4" style="margin-top: 2px;">
+                  <p style="font-size: 14px;">{{ entry.month }}, {{ entry.weekday }}</p>
+                </div>
+              </div>
+
+              <!-- Events Column -->
+              <div class="col-8">
+                <div *ngFor="let event of entry.Events" class="d-flex align-items-center mb-1"
+                  (click)="selectEvent(event, entry)">
+
+                  <i class="bi bi-circle-fill" style="color: #4C69FF; font-size: 8px; margin-right: 6px;"></i>
+                  <div style="width: 40%;">{{ event.Time }}</div>
+                  <div style="width: 60%;">
+                    <i class="bi bi-grid-fill" style="font-size: 8px; margin-right: 6px;"></i>
+                    {{ event.Title }}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-6" id="event-listing-card" *ngIf="selectedEvent">
+        <div style="padding: 30px;">
+          <!-- Title -->
+          <h4>{{ selectedEvent.Title }}</h4>
+          <hr>
+          <!-- Date and Location -->
+          <div style="display: flex; justify-content: start;">
+            <div style="display: flex;justify-content: start;align-items: start;flex-direction: column;width: 70%;">
+              <div>
+                <p style="font-size: 12px;">
+                  <span class="material-symbols-outlined"
+                    style="color: #4C69FF;font-size: 17px; vertical-align: middle; margin-bottom: 2px;">
+                    calendar_month
+                  </span>
+                  {{ selectedDateInfo.weekday }}, {{ selectedDateInfo.day }} {{ selectedDateInfo.month }} {{
+                  selectedDateInfo.year }}
+                  &nbsp;&nbsp;&nbsp;
+                  <i class="bi bi-geo-alt-fill" style="color: #4C69FF;"></i> {{ selectedEvent.location || 'N/A'
+                  }}&nbsp;&nbsp;&nbsp;
+                  <a href="#" style="color: #007bff;">Show Map</a>
+                </p>
+              </div>
+              <div>
+                <p style="margin-top: 10px;color: gray;">
+                  {{ selectedEvent.description || 'No description available' }}
+                </p>
+              </div>
+            </div>
+            <div id="event-image" class="mb-3" style="width: 30%;display: flex;justify-content: center;">
+              <img [src]="selectedEvent.imageUrl" alt="Event Image" style="width: 90%;border-radius: 10px;">
+            </div>
+          </div>
+
+<hr>
+
+
+          <!-- Description -->
+
+
+          <!-- Stats -->
+          <div style="display: flex;width: 100%;">
+            <div class="d-flex align-items-center flex-wrap mb-3" style="gap: 20px;width: 70%;font-size: 8px;">
+              <div style="display: flex; font-size: 10px;margin-right: -10px;margin-right: -8px;">
+                <div class="icon-circle">
+                  <i class="bi bi-eye" style="color: gray; font-size: 10px;"></i>
+                </div>
+                <span style="color: gray;margin-left: 2px;margin-top: 4px;"> {{ selectedEvent.views }} </span>
+              </div>
+              <div style="display: flex; font-size: 10px;margin-right: -8px;">
+                <div class="icon-circle">
+                  <i class="bi bi-bookmark" style="color: gray; font-size: 10px;"></i>
+                </div>
+                <span style="color: gray;margin-left: 3px;margin-top: 4px;"> {{ selectedEvent.bookmarks }} </span>
+              </div>
+              <div style="display: flex;margin-right: -8px;">
+                <div class="icon-circle">
+                  <i class="bi bi-dash-circle" style="color: gray; font-size: 12px;"></i>
+                </div>
+              </div>
+              <div style="display: flex;margin-right: -8px;">
+                <div class="icon-circle">
+                  <i class="bi bi-flag" style="color: gray; font-size: 12px;"></i>
+                </div>
+              </div>
+              <div style="display: flex; font-size: 10px;margin-right: -8px;">
+                <div class="icon-circle">
+                  <span class="material-symbols-outlined" style="color: gray; font-size: 10px;">
+                    arrow_outward
+                  </span>
+                </div>
+                <span style="color: gray;margin-left: 3px;margin-top: 4px;"> share </span>
+              </div>
+              <div style="display: flex; font-size: 10px;">
+                <div class="icon-circle">
+                  <i class="bi bi-person" style="color: gray; font-size: 10px;"></i>
+                </div>
+                <span style="color: gray;margin-left: 3px;margin-top: 4px;"> + {{ selectedEvent.people }} are going</span>
+              </div>
+              <span  style="color: red; background-color: rgb(250, 211, 211); padding: 6px 10px;border-radius: 10px;">
+                <i class="bi bi-clock"></i> {{ selectedEvent.daysLeft }} Days Left
+              </span>
+            </div>
+            <div style="width: 30%;display: flex;justify-content: center;align-items: center;">
+              <button class="btn event-link-button" style="font-size: 10px;margin-top: -20px;">
+                <span class="material-symbols-outlined"
+                  style="font-size: 10px; vertical-align: middle; margin-bottom: 2px; transform: rotate(90deg); display: inline-block;margin-right: -4px;margin-left: -2px;">
+                  link
+                </span>
+                Event Link
+              </button>
+
+            </div>
+          </div>
+          <!-- Tags -->
+          <div class="mb-3">
+            <ng-container *ngFor="let tag of selectedEvent.tags">
+              <span class="badge bg-primary me-2">{{ tag }}</span>
+            </ng-container>
+          </div>
+
+          <!-- Organized By -->
+          <div class="d-flex align-items-center mb-3">
+            <strong class="me-2">Organized By:</strong>
+            <img [src]="selectedEvent.organizer.imageUrl" alt="Organizer"
+              style="height: 40px; width: 40px; border-radius: 50%; margin-right: 10px;">
+            <span>ID: {{ selectedEvent.organizer.id }}</span>
+          </div>
+
+          <!-- Attending -->
+          <div class="mb-3">
+            <strong class="d-block mb-2">Attending:</strong>
+            <div class="d-flex align-items-center" style="gap: 10px;">
+              <img *ngFor="let img of selectedEvent.attending" [src]="img" alt="Attendee"
+                style="height: 36px; width: 36px; border-radius: 50%;">
+            </div>
+          </div>
+
+          <hr />
+        </div>
+      </div>
+
+
+
+
     </div>
+  </div>
 </section>

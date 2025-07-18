@@ -1,4 +1,4 @@
-<section id="side-bar" style="border: 1px solid black; height: 100%;">
+<section id="side-bar" style="height: 100%;">
     <div class="container" style="height: 100%;">
         <div class="row" style="display: flex; align-items: center; justify-content: space-between;height: 100%;">
             <div style="display: flex; align-items: center; justify-content: center;">
@@ -32,7 +32,10 @@
             <div style="display: flex; align-items: center; justify-content: center;">
                 <ul class="list-unstyled text-center d-flex flex-column gap-4">
                     <li><i class="bi bi-headphones side-bar-icon"></i></li>
-                    <li><i class="bi bi-box-arrow-left side-bar-icon"></i></li>
+                    <li (click)="onLogout()">
+                        <i class="bi bi-box-arrow-left side-bar-icon"></i>
+                    </li>
+
                 </ul>
             </div>
 

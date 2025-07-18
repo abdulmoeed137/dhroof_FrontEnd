@@ -2,13 +2,17 @@
 
 
 <!-- Your existing components -->
-<!-- <app-sign-in *ngIf="!isLoggedIn" (loginCompleted)="handleLoginSuccess($event)"></app-sign-in>
+<app-sign-in *ngIf="!isLoggedIn" (loginCompleted)="handleLoginSuccess($event)"></app-sign-in>
 
 <app-first-login *ngIf="isLoggedIn && isFirstLogin" [userEmail]="userEmail"
   (onboardingCompleted)="handleOnboardingCompleted()"></app-first-login>
 
-<app-dashboard *ngIf="isLoggedIn && !isFirstLogin"></app-dashboard> -->
-<div style="height: 100%;">
+<app-dashboard 
+  *ngIf="isLoggedIn && !isFirstLogin" 
+  (logoutRequested)="handleLogout()">
+</app-dashboard>
+
+<!-- <div style="height: 100%;">
 <app-dashboard></app-dashboard>
-</div>
+</div> -->
 
